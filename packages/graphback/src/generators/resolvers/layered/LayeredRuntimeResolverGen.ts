@@ -77,6 +77,21 @@ export class LayeredRuntimeResolverGenerator {
 
       this.createSubscriptions(resolverElement, resolvers)
     }
+
+    // Delete Query if not needed.
+    if (Object.keys(resolvers.Query).length === 0) {
+      delete resolvers.Query;
+    }
+
+    // Delete Mutation if not needed.
+    if (Object.keys(resolvers.Mutation).length === 0) {
+      delete resolvers.Mutation;
+    }
+
+    // Delete subscriptions if not needed.
+    if (Object.keys(resolvers.Subscription).length === 0) {
+      delete resolvers.Subscription;
+    }
     // TODO relationships
 
     return resolvers;
@@ -109,11 +124,6 @@ export class LayeredRuntimeResolverGenerator {
           return this.service.subscribeToDelete(resolverElement, context);
         }
       }
-    }
-
-    // Delete subscriptions if not needed.
-    if (Object.keys(resolvers.Subscription).length === 0) {
-      delete resolvers.Subscription;
     }
   }
 }

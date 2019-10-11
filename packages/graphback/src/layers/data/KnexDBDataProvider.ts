@@ -1,5 +1,5 @@
 // tslint:disable-next-line: no-require-imports
-import * as Knex from 'knex';
+import knex from 'knex';
 import { InputModelTypeContext } from '../../input/ContextTypes';
 import { getTableName } from '../../utils';
 import { AdvancedFilter, GraphbackDataProvider } from './GraphbackDataProvider';
